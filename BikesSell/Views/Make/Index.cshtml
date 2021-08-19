@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BikesSell.Models.Make>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Makes of Vehicles</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a class="btn btn-info" asp-action="Create" style="margin-top:10px;">Add New Make</a>
+    </div>
+    <br />
+    <div class="col-12" style="margin-top:18px">
+        <table class="table table-striped border">
+            <tr class="table-info">
+                <th>
+                    @Html.DisplayNameFor(x=>x.Name)
+                </th>
+                <th></th>
+            </tr>
+            @foreach(var item in Model)
+            {
+        <tr>
+            <td>@Html.DisplayFor(x => item.Name)</td>
+            <td class="text-right"><a type="button"  class="btn btn-primary"  href="@Url.Action("Edit","Make",new { id=item.Id})">Edit</a>
+            <a type="button" class="btn btn-danger" onclick="Conf()" href="@Url.Action("Delete","Make",new { id=item.Id})">Delete</a></td>
+
+        </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    function Conf() {
+        debugger;
+        confirm("Are you sure you want to delete this make");
+        return false;
+    };
+
+    $(document).ready(function () {
+        debugger;
+
+        
+    });
+        
+</script>

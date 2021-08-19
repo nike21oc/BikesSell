@@ -28,5 +28,11 @@ namespace BikesSell.Controllers
             var data = _db.Models.Include(x => x.Make);
             return View();
         }
+
+        public IActionResult Create()
+        {
+           // var data = _db.Models.Include(x => x.Make);
+            return View();
+        }
     }
 }
